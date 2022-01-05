@@ -22,3 +22,5 @@ Install dependencies first: `pip3 install gmqtt uvloop`
 
 Let's say your Canique Gateway IP is 192.168.1.200  
 Then run: `python3 ./cnq-print-sensor-data.py 192.168.1.200`
+
+![Output of script](/cnq-print-sensor-data.png)

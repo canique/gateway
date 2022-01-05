@@ -2,7 +2,7 @@
 
 import asyncio
 import os, sys, signal
-import time
+import datetime
 import json
 
 from gmqtt import Client as MQTTClient
@@ -32,6 +32,7 @@ def on_connect(client, flags, rc, properties):
 
 async def on_message(client, topic, payload, qos, properties):
     m = re.fullmatch('sensors/([a-z]+)/([0-9]+)/(reading|battery)', topic) #e.g. sensors/air/5/reading
+
     if m != None:
         if m.group(1) == 'air' and m.group(3) == 'reading':
             sensorData = json.loads(payload)
@@ -48,7 +49,10 @@ async def on_message(client, topic, payload, qos, properties):
             timestamp = sensorData['ts']
             sensorId = sensorData['sid']
 
-            print("Air Sensor {}: Rel. Humidity = {}%, Absolute Humidity = {},  Temperature = {}°C, Signal Strength: {} dBm".format(sensorId, relHum, absHum, temperature, rssi))
+            #timestamp is unix time in ms
+            nowTime = datetime.datetime.fromtimestamp(int(timestamp / 1000))
+
+            print("{} - Air Sensor {}: Rel. Humidity = {}%, Absolute Humidity = {}, Temperature = {}°C, Signal Strength: {} dBm".format(nowTime, sensorId, relHum, absHum, temperature, rssi))
         elif m.group(3) == 'battery':
             sensorData = json.loads(payload)
 
@@ -56,7 +60,10 @@ async def on_message(client, topic, payload, qos, properties):
             sensorId = sensorData['sid']
             milliVolts = sensorData['mV']
 
-            print("Battery Status Sensor {}: {} V".format(sensorId, milliVolts/1000))
+            #timestamp is unix time in ms
+            nowTime = datetime.datetime.fromtimestamp(int(timestamp / 1000))
+
+            print("{} - Battery Status Sensor {}: {} V".format(nowTime, sensorId, milliVolts/1000))
 
 
 
