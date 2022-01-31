@@ -51,7 +51,7 @@ echo "Installing Nginx + PHP7.4 ..."
 sudo apt-get -y install nginx php7.4-fpm
 
 echo "Installing Canique Packages..."
-sudo apt-get -y canique-radio-bridge canique-mqtt-tools canique-web-conf canique-local-cockpit
+sudo apt-get -y install canique-radio-bridge canique-mqtt-tools canique-web-conf canique-local-cockpit
 
 echo "Status for nginx, mosquitto, influxdb, php7.4 - you should see 4x active:"
 systemctl is-active nginx mosquitto influxdb php7.4-fpm
