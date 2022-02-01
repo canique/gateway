@@ -14,9 +14,11 @@ You need at least 1 [Canique Climat](https://www.canique.com/climat) (temperatur
 
 
 1) Run install.sh on your Raspberry PI to automatically install InfluxDB, a bugfixed Canique version of Mosquitto, Nginx webserver, PHP 7.4, the Canique Local Cockpit (a webpage that gives you access to your sensor data without internet connection), and Canique software to communicate with the hat  
-Open a terminal on your Raspberry Pi  
-`mkdir /tmp/cnq-gateway && cd /tmp/cnq-gateway && wget -q https://raw.githubusercontent.com/canique/gateway/main/raspberry-pi-radio-hat/install.sh`  
-`chmod u+x install.sh && ./install.sh`  
+```
+mkdir /tmp/cnq-gateway && cd /tmp/cnq-gateway && \
+wget -q https://raw.githubusercontent.com/canique/gateway/main/raspberry-pi-radio-hat/install.sh
+chmod u+x install.sh && ./install.sh
+```  
 
 2) Shut down your Raspberry Pi:  
 `sudo shutdown -h now`  
