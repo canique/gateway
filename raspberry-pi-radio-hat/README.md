@@ -7,7 +7,7 @@ This How-To will explain how to turn your Raspberry Pi into a Canique 868MHz Gat
 
 
 Pre-Requisites:  
-You need a Raspberry Pi (tested on Raspberry Pi 3)  
+You need a Raspberry Pi (tested on Raspberry Pi 3 and Raspberry Pi 4)  
 You need a Debian Bullseye based OS on your Raspberry Pi  
 You need a Canique Radio Hat (available soon in Canique Shop) with antenna and u.FL cable  
 You need at least 1 [Canique Climat](https://www.canique.com/climat) (temperature/humidity sensor) to talk to  
@@ -15,8 +15,8 @@ You need at least 1 [Canique Climat](https://www.canique.com/climat) (temperatur
 
 1) Run install.sh on your Raspberry PI to automatically install InfluxDB, a bugfixed Canique version of Mosquitto, Nginx webserver, PHP 7.4, the Canique Local Cockpit (a webpage that gives you access to your sensor data without internet connection), and Canique software to communicate with the hat  
 Open a terminal on your Raspberry Pi  
-`cd /tmp && git clone https://github.com/canique/gateway`  
-`chmod u+x gateway/raspberry-pi-radio-hat/install.sh && gateway/raspberry-pi-radio-hat/install.sh`  
+`mkdir /tmp/cnq-gateway && cd /tmp/cnq-gateway && wget -q https://raw.githubusercontent.com/canique/gateway/main/raspberry-pi-radio-hat/install.sh`  
+`chmod u+x install.sh && ./install.sh`  
 
 2) Shut down your Raspberry Pi:  
 `sudo shutdown -h now`  
@@ -31,7 +31,7 @@ Open a terminal on your Raspberry Pi
 
 6) Setup connection between your mosquitto broker and Canique Cloud  
 Enter in a terminal on your Raspberry Pi, replacing MQTT_USER and MQTT_PASSWORD with your own user and password that you got with the hat  
-`canique-setup-mosquitto-bridge MQTT_USER MQTT_PASSWD`  
+`canique-setup-mosquitto-bridge MQTT_USER MQTT_PASSWORD`  
 
 6) Setup sensor radio password for every Canique Climat that you have  
 `runuser -u cnq canique-setup-sensor-encryption`  
