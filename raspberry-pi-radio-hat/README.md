@@ -50,6 +50,20 @@ You can now see your sensor data on https://cockpit.canique.com and in your loca
 
 
 
+
+## Raspberry Pi4 Power Optimization
+
+If you want to reduce the power consumption of your Raspberry Pi 4...  
+
+To disable WiFi/Bluetooth:  
+Add this to /boot/config.txt, then reboot:  
+```
+[all]
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+```
+
+
 ## Technical Details
 
 Canique specific configuration files can be found in /etc/cnq-xxxxxxx  
