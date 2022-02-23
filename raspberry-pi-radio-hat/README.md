@@ -71,7 +71,7 @@ dtoverlay=disable-bt
 
 To make your SD card more resilient against errors (for a tradeoff for slower writes), run  
 `sudo tune2fs -o journal_data /dev/mmcblk0p2`  
-This command assumes that your root parition is on /dev/mmcblk0p2 - adjust it to your needs.
+This command assumes that your root partition is on /dev/mmcblk0p2 - adjust it to your needs.
 
 
 ## Technical Details
