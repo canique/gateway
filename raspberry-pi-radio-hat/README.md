@@ -53,8 +53,8 @@ You can now see your sensor data on https://cockpit.canique.com and in your loca
 ## Radio Reception Quality / Noise Indicator
 
 The Raspberry Pi can emit noise (which also covers the 868MHz band) while doing SD card writes, or while  heavily using the WiFi chip or LAN (e.g. while downloading a file). To keep the received noise level to a minimum so that the antenna of the Canique Gateway Hat does not see much interference, you should keep heavy SD card writes or network transactions to a minimum.   
-You can see the noise level visually by looking at the amber RX led of the Canique Gateway Hat. Ideally it should blink once in a while (whenever it thinks it is receiving a message). If the RX LED is on all the time, though, this means that the received noise is above the RX threshold (set to @ -98 dBm by default).
-Noise can also stem from a TV in the close proximity or some other electronic device.
+You can see the noise level visually by looking at the amber RX LED of the Canique Gateway Hat. Ideally it should blink once in a while (whenever it thinks it is receiving a message). If the RX LED is on all the time, though, this means that the received noise is above the RX threshold (set to -98 dBm by default).
+Please note that noise can also stem from a TV in the close proximity or some other electronic device.
 
 
 ## Raspberry Pi4 Power Optimization and Tuning
@@ -69,9 +69,9 @@ dtoverlay=disable-wifi
 dtoverlay=disable-bt
 ```
 
-To make your SD card more resilient against errors (for a tradeoff against slower writes), run  
+To make your SD card more resilient against errors (for a tradeoff for slower writes), run  
 `sudo tune2fs -o journal_data /dev/mmcblk0p2`  
-This command assumes that your root parition is on /dev/mmcblk0p2
+This command assumes that your root parition is on /dev/mmcblk0p2 - adjust it to your needs.
 
 
 ## Technical Details
