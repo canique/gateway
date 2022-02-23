@@ -7,10 +7,10 @@ This How-To will explain how to turn your Raspberry Pi into a Canique 868MHz Gat
 
 
 Pre-Requisites:  
-You need a Raspberry Pi (tested on Raspberry Pi 3 and Raspberry Pi 4)  
-You need a Debian Bullseye based OS on your Raspberry Pi  
-You need a Canique Radio Hat (available soon in Canique Shop) with antenna and u.FL cable  
-You need at least 1 [Canique Climat](https://www.canique.com/climat) (temperature/humidity sensor) to talk to  
+- a Raspberry Pi (tested on Raspberry Pi 3 and Raspberry Pi 4)
+- a Debian Bullseye based OS on your Raspberry Pi (with systemd)
+- a Canique Radio Hat (available soon in Canique Shop) with antenna and u.FL cable
+- at least 1 [Canique Climat](https://www.canique.com/climat) (temperature/humidity sensor) to talk to  
 
 
 1) Run install.sh on your Raspberry PI to automatically install InfluxDB, a bugfixed Canique version of Mosquitto, Nginx webserver, PHP 7.4, the Canique Local Cockpit (a webpage that gives you access to your sensor data without internet connection), and Canique software to communicate with the hat  
@@ -50,8 +50,14 @@ You can now see your sensor data on https://cockpit.canique.com and in your loca
 
 
 
+## Radio Reception Quality / Noise Indicator
 
-## Raspberry Pi4 Power Optimization
+The Raspberry Pi can emit noise (which also covers the 868MHz band) while doing SD card writes, or while  heavily using the WiFi chip or LAN (e.g. while downloading a file). To keep the received noise level to a minimum so that the antenna of the Canique Gateway Hat does not see much interference, you should keep heavy SD card writes or network transactions to a minimum.   
+You can see the noise level visually by looking at the amber RX led of the Canique Gateway Hat. Ideally it should blink once in a while (whenever it thinks it is receiving a message). If the RX LED is on all the time, though, this means that the received noise is above the RX threshold (set to @ -98 dBm by default).
+Noise can also stem from a TV in the close proximity or some other electronic device.
+
+
+## Raspberry Pi4 Power Optimization and Tuning
 
 If you want to reduce the power consumption of your Raspberry Pi 4...  
 
@@ -63,6 +69,10 @@ dtoverlay=disable-wifi
 dtoverlay=disable-bt
 ```
 
+To make your SD card more resilient against errors (for a tradeoff against slower writes), run  
+`sudo tune2fs -o journal_data /dev/mmcblk0p2`  
+This command assumes that your root parition is on /dev/mmcblk0p2
+
 
 ## Technical Details
 
@@ -71,7 +81,7 @@ Canique specific configuration files can be found in /etc/cnq-xxxxxxx
 The following packages from Canique are installed:
 
 canique-radio-bridge  
-This package is necessary for the Raspberry Pi to communicate with the Canique Hat. UART settings will be automatically adjusted during installation.
+This package is necessary for the Raspberry Pi to communicate with the Canique Hat. UART settings of your Raspberry Pi's operating system will be automatically adjusted during installation.
 
 canique-mqtt-tools  
 This package will install a bridge that forwards mosquitto data to influxdb so that you can see charts in your Canique Local Cockpit.  

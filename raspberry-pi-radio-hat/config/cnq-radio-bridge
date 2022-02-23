@@ -1,0 +1,11 @@
+[MQTT]
+host=localhost
+username=radio-bridge
+password=MQTTPASSWORDHERE
+[UART]
+device=/dev/serial0
+speed=500000
+[TIME]
+defaultSyncInterval=1830
+minFirstSyncInterval=5
+maxFirstSyncInterval=300
