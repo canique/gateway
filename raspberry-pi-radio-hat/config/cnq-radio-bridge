@@ -9,7 +9,7 @@ device=/dev/serial0
 speed=500000
 [TIME]
 default-sync-interval=1830
-min-first-sync-Interval=5
+min-first-sync-interval=5
 max-first-sync-interval=300
 [RADIO]
 rssi-threshold=-98
