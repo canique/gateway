@@ -9,7 +9,7 @@ This How-To will explain how to turn your Raspberry Pi into a Canique 868MHz Gat
 Pre-Requisites:  
 - a Raspberry Pi (tested on Raspberry Pi 3 and Raspberry Pi 4)
 - a Debian Bullseye based OS on your Raspberry Pi (with systemd)
-- a Canique Radio Hat (available soon in Canique Shop) with antenna and u.FL cable
+- a [Canique Radio Hat for Raspberry Pi](https://www.canique.com/radio-hat) with antenna and u.FL cable
 - at least 1 [Canique Climat](https://www.canique.com/climat) (temperature/humidity sensor) to talk to  
 
 
