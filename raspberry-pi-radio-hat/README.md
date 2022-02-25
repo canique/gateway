@@ -30,7 +30,7 @@ chmod u+x install.sh && ./install.sh
    - Attach the Canique Radio Hat to your Raspberry Pi
    - Connect the antenna to the cable
 
-5) Reconnect Power to your Raspberry Pi
+5) Reconnect Power to your Raspberry Pi  
    After booting up, the Radio Hat should already be working. You can display the the last 100 log lines with the command:  
    `journalctl -n100 -u canique-radio-bridge`  
 
