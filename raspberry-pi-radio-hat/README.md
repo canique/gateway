@@ -25,28 +25,32 @@ chmod u+x install.sh && ./install.sh
 
 3) Disconnect Power from your Raspberry Pi  
 
-4) Attach the antenna cable to the Canique Radio Hat  
-   Attach the Canique Radio Hat to your Raspberry Pi  
-   Connect the antenna to the cable  
+4) - Insert CR2032 battery into Canique Radio Hat's battery holder
+   - Attach the antenna cable to the Canique Radio Hat
+   - Attach the Canique Radio Hat to your Raspberry Pi
+   - Connect the antenna to the cable
 
-5) Reconnect Power to your Raspberry Pi  
+5) Reconnect Power to your Raspberry Pi
+   After booting up, the Radio Hat should already be working. You can display the the last 100 log lines with the command:  
+   `journalctl -n100 -u canique-radio-bridge`  
 
-6) Setup connection between your mosquitto broker and Canique Cloud  
+6) Setup connection between your mosquitto broker and Canique Cloud (optional)  
 Enter in a terminal on your Raspberry Pi, replacing MQTT_USER and MQTT_PASSWORD with your own user and password that you got with the hat  
 `canique-setup-mosquitto-bridge MQTT_USER MQTT_PASSWORD`  
+(You can skip this step if you do not want to use the Canique Cloud. Then your data will stay local.)
 
-6) Setup sensor radio password for every Canique Climat that you have  
+7) Setup sensor radio password for every Canique Climat that you have  
 `runuser -u cnq canique-setup-sensor-encryption`  
 You will be asked for the sensor UID and the sensor radio password. Repeat this step for every sensor you want to connect.
 
-7) Restart the Canique Radio Bridge so that all sensor passwords are updated  
+8) Restart the Canique Radio Bridge so that all sensor passwords are updated  
 `sudo systemctl restart canique-radio-bridge`  
 
-8) Insert battery into Canique Climat  
+9) Insert battery into Canique Climat  
 
 
 That's it.  
-You can now see your sensor data on https://cockpit.canique.com and in your local network visiting the IP address of your Raspberry Pi in a webbrowser.
+You can now see your sensor data on https://cockpit.canique.com (if you also followed step 6) and in your local network visiting the IP address of your Raspberry Pi in a webbrowser.
 
 
 
