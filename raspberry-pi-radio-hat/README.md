@@ -8,7 +8,7 @@ This How-To will explain how to turn your Raspberry Pi into a Canique 868MHz Gat
 
 Pre-Requisites:  
 - a Raspberry Pi (tested on Raspberry Pi 3 and Raspberry Pi 4)
-- a Debian Bullseye based OS on your Raspberry Pi (with systemd)
+- a 32-bit Debian Bullseye based OS with systemd (tested with Raspberry Pi OS Lite 32-bit)
 - a [Canique Radio Hat for Raspberry Pi](https://www.canique.com/radio-hat) with antenna and u.FL cable
 - at least 1 [Canique Climat](https://www.canique.com/climat) (temperature/humidity sensor) to talk to  
 
@@ -27,7 +27,7 @@ chmod u+x install.sh && ./install.sh
 
 4) - Insert CR2032 battery into Canique Radio Hat's battery holder
    - Attach the antenna cable to the Canique Radio Hat
-   - Attach the Canique Radio Hat to your Raspberry Pi
+   - Connect the Canique Radio Hat to your Raspberry Pi
    - Connect the antenna to the cable
 
 5) Reconnect Power to your Raspberry Pi  
@@ -40,7 +40,7 @@ Enter in a terminal on your Raspberry Pi, replacing MQTT_USER and MQTT_PASSWORD 
 (You can skip this step if you do not want to use the Canique Cloud. Then your data will stay local.)
 
 7) Setup sensor radio password for every Canique Climat that you have  
-`runuser -u cnq canique-setup-sensor-encryption`  
+`sudo runuser -u cnq canique-setup-sensor-encryption`  
 You will be asked for the sensor UID and the sensor radio password. Repeat this step for every sensor you want to connect.
 
 8) Restart the Canique Radio Bridge so that all sensor passwords are updated  
