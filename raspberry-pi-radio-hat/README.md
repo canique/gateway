@@ -46,7 +46,7 @@ You will be asked for the sensor UID and the sensor radio password. Repeat this 
 8) Restart the Canique Radio Bridge so that all sensor passwords are updated  
 `sudo systemctl restart canique-radio-bridge`  
 
-9) Insert battery into Canique Climat  
+9) Insert battery into Canique Climat or follow [Canique Climat setup steps](https://www.canique.com/climat-first-steps) skipping the first sections and proceeding with *Setting up Canique Climat*   
 
 
 That's it.  
