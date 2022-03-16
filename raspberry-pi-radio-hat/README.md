@@ -31,7 +31,7 @@ chmod u+x install.sh && ./install.sh
    - Connect the antenna to the cable
 
 5) Reconnect Power to your Raspberry Pi  
-   After booting up, the Radio Hat should already be working. You can display the the last 100 log lines with the command:  
+   After booting up, the Radio Hat should already be working. You can display the last 100 log lines with the command:  
    `journalctl -n100 -u canique-radio-bridge`  
 
 6) Setup connection between your mosquitto broker and Canique Cloud (optional)  
