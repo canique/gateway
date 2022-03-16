@@ -1,5 +1,7 @@
 # Canique Radio Hat for Raspberry Pi
+![Radio Hat in Action](https://www.canique.com/img/1080px/radio_hat_cockpit_accuracy.jpg)
 
+[Video showing accuracy of Canique Temperature Monitoring System](https://www.youtube.com/watch?v=cbi-35kW44U) - Video shows Raspberry Pi 4 + Radio Hat + 3 Canique Climat sensors and live updates on an iPad
 
 ## Installation
 
