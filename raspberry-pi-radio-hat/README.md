@@ -22,10 +22,10 @@ wget -q https://raw.githubusercontent.com/canique/gateway/main/raspberry-pi-radi
 chmod u+x install.sh && ./install.sh
 ```  
 
-2) Shut down your Raspberry Pi:  
+2) Wait for the install script to finish, then shut down your Raspberry Pi:  
 `sudo shutdown -h now`  
 
-3) Disconnect Power from your Raspberry Pi  
+3) Wait for the LEDs on your Raspberry Pi to stop blinking, then disconnect Power from your Raspberry Pi  
 
 4) - Insert CR2032 battery into Canique Radio Hat's battery holder
    - Attach the antenna cable to the Canique Radio Hat
