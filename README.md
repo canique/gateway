@@ -1,5 +1,7 @@
 # Canique Gateway
 
+![Canique Gateway](https://www.canique.com/img/1080px/gateway_front.jpg)
+
 Here you'll find tools related to the 868MHz Radio Gateway on https://www.canique.com/gateway
 
 
