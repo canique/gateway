@@ -27,8 +27,8 @@ chmod u+x install.sh && ./install.sh
 
 3) Disconnect Power from your Raspberry Pi  
 
-4) - Insert CR2032 battery into Canique Radio Hat's battery holder
-   - Attach the antenna cable to the Canique Radio Hat
+4) - Insert CR2032 battery into Canique Radio Hat's battery holder (unless already done)
+   - Attach the antenna cable to the Canique Radio Hat (unless already done)
    - Connect the Canique Radio Hat to your Raspberry Pi
    - Connect the antenna to the cable
 
@@ -42,10 +42,13 @@ Enter in a terminal on your Raspberry Pi, replacing MQTT_USER and MQTT_PASSWORD 
 (You can skip this step if you do not want to use the Canique Cloud. Then your data will stay local.)
 
 7) Setup sensor radio password for every Canique Climat that you have  
+If you have a Radio Hat with HW version < 0.8.x, then run  
 `sudo runuser -u cnq canique-setup-sensor-encryption`  
+For HW versions 0.8.x or greater, your Radio Hat comes with an onboard EEPROM. The passwords are usually already setup at the factory, and you can skip this step. If you later add new sensors, though, then run   
+`sudo -u cnq canique-sensor-keytool set`  
 You will be asked for the sensor UID and the sensor radio password. Repeat this step for every sensor you want to connect.
 
-8) Restart the Canique Radio Bridge so that all sensor passwords are updated  
+8) For Radio Hat HW versions < 0.8.x, restart the Canique Radio Bridge so that all sensor passwords are updated  
 `sudo systemctl restart canique-radio-bridge`  
 
 9) Insert battery into Canique Climat or follow [Canique Climat setup steps](https://www.canique.com/climat-first-steps) skipping the first sections and proceeding with *Setting up Canique Climat*   
