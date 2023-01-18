@@ -61,13 +61,6 @@ You can now see your sensor data on https://cockpit.canique.com (if you also fol
 
 
 
-## Radio Reception Quality / Noise Indicator
-
-The Raspberry Pi can emit noise (which also covers the 868MHz band) while doing SD card writes, or while  heavily using the WiFi chip or LAN (e.g. while downloading a file). To keep the received noise level to a minimum so that the antenna of the Canique Gateway Hat does not see much interference, you should keep heavy SD card writes or network transactions to a minimum.   
-You can see the noise level visually by looking at the amber RX LED of the Canique Gateway Hat. Ideally it should blink once in a while (whenever it thinks it is receiving a message). If the RX LED is on all the time, though, this means that the received noise is above the RX threshold (set to -98 dBm by default).
-Please note that noise can also stem from a TV in the close proximity or some other electronic device.
-
-
 ## Troubleshooting RF issues
 If message loss occurs, this guide will help you:
 1) Make sure the amber LED on the radio hat is not fully turned on. It should not blink more often then once a second. If it is blinking permanently,
@@ -79,6 +72,15 @@ If message loss occurs, this guide will help you:
    rssi-threshold=-98
    ```
    Then run `sudo systemctl restart canique-radio-bridge` for the changes to take effect.
+
+2) In case you only observe message loss on one sensor, make sure that the antenna of the sensor and the antenna of the radio hat are parallel to each other. If the sensor is in an enclosure, the antenna is placed lengthwise inside.
+
+
+## Radio Reception Quality / Noise Indicator
+
+The Raspberry Pi can emit noise (which also covers the 868MHz band) while doing SD card writes, or while  heavily using the WiFi chip or LAN (e.g. while downloading a file). To keep the received noise level to a minimum so that the antenna of the Canique Gateway Hat does not see much interference, you should keep heavy SD card writes or network transactions to a minimum.   
+You can see the noise level visually by looking at the amber RX LED of the Canique Gateway Hat. If the RX LED is on all the time, this means that the received noise is above the RX threshold (set to -98 dBm by default) all the time and message loss will occur.
+Please note that noise can also stem from a TV in the close proximity or some other electronic device.
 
 
 ## Raspberry Pi4 Power Optimization and Tuning
