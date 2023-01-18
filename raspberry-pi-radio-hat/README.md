@@ -71,7 +71,7 @@ If message loss occurs, this guide will help you:
    [RADIO]
    rssi-threshold=-92
    ```
-   Then run `sudo systemctl restart canique-radio-bridge` for the changes to take effect - in this case the threshold is increased to -92 dBm so that noise is blocked better but at the same time the wireless range is slightly reduced.
+   Then run `sudo systemctl restart canique-radio-bridge` for the changes to take effect - in this case the threshold is increased to -92 dBm so that noise is blocked better but at the same time the wireless range is slightly reduced. You should keep that level between -85 and -98 dBm. If you go beyond -85dBm even valid messages might not be recognized. If you go beyond -98 dBm you may risk message loss.
 
 2) In case you only observe message loss on one sensor, make sure that the antenna of the sensor and the antenna of the radio hat are parallel to each other. If the sensor is in an enclosure, the antenna is placed lengthwise inside.
 
