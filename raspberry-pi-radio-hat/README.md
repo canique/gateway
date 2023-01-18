@@ -68,6 +68,19 @@ You can see the noise level visually by looking at the amber RX LED of the Caniq
 Please note that noise can also stem from a TV in the close proximity or some other electronic device.
 
 
+## Troubleshooting RF issues
+If message loss occurs, this guide will help you:
+1) Make sure the amber LED on the radio hat is not fully turned on. It should not blink more often then once a second. If it is blinking permanently,
+   - You can try changing the direction of the u.FL antenna cable, turn it to the left or to the right while not pulling it off its socket. This may sometimes help.
+   - Make sure you are using a high quality power supply. The radio hat is tested with the original Raspberry Pi Power Supply. If you use a bad quality one, the output voltage may contain high ripple voltage which will lead to an increased radio noise floor and which in turn will lead to message loss.
+   - if you are already using a good power supply and playing with the u.FL cable direction did not help, you can increase the threshold above which the radio will accept messages. The goal is to increase this threshold above the noiselevel. By default it is set to -98 dBm. You can open the settings in an editor by running `sudo nano /etc/cnq-radio-bridge` and adding a section
+   ```
+   [RADIO]
+   rssi-threshold=-98
+   ```
+   Then run `sudo systemctl restart canique-radio-bridge` for the changes to take effect.
+
+
 ## Raspberry Pi4 Power Optimization and Tuning
 
 If you want to reduce the power consumption of your Raspberry Pi 4...  
