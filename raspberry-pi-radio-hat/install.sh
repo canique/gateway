@@ -8,6 +8,13 @@ if ! [ "$release" = "bullseye" ]; then
   exit 1
 fi
 
+bits="$(getconf LONG_BIT)"
+
+if ! [ "$bits" = "32" ]; then
+  echo "Only 32 Bit OS are supported as of now. Please check that you are running a 32 Bit OS."
+  exit 1
+fi
+
 #prepare CANIQUE REPO
 SetupCaniqueRepository() {
   if ! [ -f /etc/apt/sources.list.d/canique.list ]; then
