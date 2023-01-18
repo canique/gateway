@@ -63,15 +63,15 @@ You can now see your sensor data on https://cockpit.canique.com (if you also fol
 
 ## Troubleshooting RF issues
 If message loss occurs, this guide will help you:
-1) Make sure the amber LED on the radio hat is not fully turned on. It should not blink more often then once a second. If it is blinking permanently,
-   - You can try changing the direction of the u.FL antenna cable, turn it to the left or to the right while not pulling it off its socket. This may sometimes help.
+1) Make sure the amber LED on the radio hat is not fully turned on. It should not blink more often than once a second. If it is blinking permanently,
+   - You can try changing the direction of the u.FL antenna cable, gently turn it to the left or to the right while taking care to not pull it off its socket. This may sometimes help.
    - Make sure you are using a high quality power supply. The radio hat is tested with the original Raspberry Pi Power Supply. If you use a bad quality one, the output voltage may contain high ripple voltage which will lead to an increased radio noise floor and which in turn will lead to message loss.
-   - if you are already using a good power supply and playing with the u.FL cable direction did not help, you can increase the threshold above which the radio will accept messages. The goal is to increase this threshold above the noiselevel. By default it is set to -98 dBm. You can open the settings in an editor by running `sudo nano /etc/cnq-radio-bridge` and adding a section
+   - if you are already using a good power supply and playing with the u.FL cable direction did not help, you can increase the threshold above which the radio will accept messages. The goal is to increase this threshold above the RF noise floor. By default it is set to -98 dBm. You can open the settings in an editor by running `sudo nano /etc/cnq-radio-bridge` and then add/change the section
    ```
    [RADIO]
-   rssi-threshold=-98
+   rssi-threshold=-92
    ```
-   Then run `sudo systemctl restart canique-radio-bridge` for the changes to take effect.
+   Then run `sudo systemctl restart canique-radio-bridge` for the changes to take effect - in this case the threshold is increased to -92 dBm so noise is blocked but at the same time the wireless range is slightly reduced.
 
 2) In case you only observe message loss on one sensor, make sure that the antenna of the sensor and the antenna of the radio hat are parallel to each other. If the sensor is in an enclosure, the antenna is placed lengthwise inside.
 
