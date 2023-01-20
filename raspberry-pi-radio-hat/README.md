@@ -86,7 +86,7 @@ Please note that noise can also stem from a TV in the close proximity or some ot
 
 ## Canique Radio Bridge Log Format
 
-You can see the last 100 lines of log data about how messages from the Canique Radio Hat are received, by running
+You can see the last 100 lines of log data about how messages from the Canique Radio Hat are received, by running   
 `journalctl -n100 -u canique-radio-bridge` or   
 `journalctl -n100 -f -u canique-radio-bridge` to see new data as it arrives.   
 
@@ -105,15 +105,16 @@ Once in while you may see a message like
 [GW Log] RX Rdy: 579926, Sync Addr: 13292, Sync Addr Tout 566634, Fifo Level Tout 0, Payload Rdy Tout 0
 ```
 The radio hat gathers statistics about certain events.   
-Rx Rdy (RX Ready): number of times that the radio has seen a message which is above the receive RSSI threshold (-98 dBm by default). This is basically the number of times that the RX LED has turned on.   
+Rx Rdy (RX Ready): number of times that the radio has seen a signal which is above the receive RSSI threshold (-98 dBm by default). This is basically the number of times that the RX LED has turned on.   
 
-Sync Addr (Synchronization Address): number of times that a certain byte sequence has been received. This byte sequence is telling the Radio Hat that this is most probably a Canique message.   
+Sync Addr (Synchronization Address): number of times that a certain byte sequence has been received after the RX Ready event. This byte sequence is telling the Radio Hat that this is most probably a Canique message.   
 
-Sync Addr Tout (Synchronization Address Timeout): number of times that the radio timed out waiting for the synchronization address. This timeout will happen on a false Rx Ready, e.g. if the RX Ready was triggered by EMI or some other noise in the frequency spectrum. So basically: Number of RX Ready = Number of Sync Addr + Number of Sync Addr Timeout   
+Sync Addr Tout (Synchronization Address Timeout): number of times that the radio timed out waiting for the synchronization address. This timeout will happen on a false Rx Ready, e.g. if the RX Ready event was triggered by EMI or some other noise in the frequency spectrum rather than by a genuine message.   
+So basically: Number of RX Ready = Number of Sync Addr + Number of Sync Addr Timeout   
 
 Fifo Level Tout (Fifo Level Timeout): After receiving the Synchronization Address, the radio waits for a certain number of bytes to be received. These are written into a first-in-first-out (Fifo) queue. If these bytes are not received within a certain timeout, then this counter will increment.   
 
-Payload Rdy Tout (Payload Ready Timeout): After enough bytes are written to the Fifo, the complete message must be received within a certain time. If the radio fails to receive the complete message within a certain time, this counter will increment.
+Payload Rdy Tout (Payload Ready Timeout): After enough bytes have been written to the Fifo, the complete message must be received within a certain time. If the radio fails to receive the complete message within a certain time, this counter will increment.
 
 
 ## Raspberry Pi4 Power Optimization and Tuning
