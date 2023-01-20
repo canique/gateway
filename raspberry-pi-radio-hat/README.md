@@ -108,10 +108,10 @@ The radio hat gathers statistics about certain events.
 First an easy explanation:   
 
 RX Ready = how often the RX LED turned on   
-Sync Address = number of genuine messages   
+Sync Address = number of messages from a Canique device   
 Sync Address Timeout = number of false positives (radio thinking it's a message but it is noise)   
 Fifo Level Timeout = number of cut off messages   
-Payload Ready Timeout = number of incomplete message that were too long to be counted as cut off but too short to be complete
+Payload Ready Timeout = number of incomplete messages that were too long to be counted as cut off but too short to be complete
 
 
 The technical explanation:   
