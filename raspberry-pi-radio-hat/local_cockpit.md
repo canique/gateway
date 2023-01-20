@@ -1,6 +1,7 @@
 # Adjusting the local cockpit to your needs
 
-The debian package canique-local-cockpit provides html, js, and css files and places them under /var/www/canique-gateway/   
+The debian package canique-local-cockpit provides html, js, and css files and places them under /var/www/canique-gateway/  
+All dynamic data (sensor data, sensor labels etc) is loaded by Javascript calls using WebSockets (talking directly to Mosquitto on port 9001). The chart data is loaded by requesting JSON formatted data from InfluxDB on port 8086.
 You can change the index.html under this directory to fit your needs.   
 
 If you change css or js files, please note that
