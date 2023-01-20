@@ -62,6 +62,7 @@ You can now see your sensor data on https://cockpit.canique.com (if you also fol
 
 
 ## Troubleshooting RF issues
+
 If message loss occurs, this guide will help you:
 1) Make sure the amber LED on the radio hat is not fully turned on. It should not blink more often than once a second. If it is blinking permanently,
    - You can try changing the direction of the u.FL antenna cable, gently turn it to the left or to the right while taking care to not pull it off its socket. This may sometimes help.
@@ -81,6 +82,7 @@ If message loss occurs, this guide will help you:
 The Raspberry Pi can emit noise (which also covers the 868MHz band) while doing SD card writes, or while  heavily using the WiFi chip or LAN (e.g. while downloading a file). To keep the received noise level to a minimum so that the antenna of the Canique Gateway Hat does not see much interference, you should keep heavy SD card writes or network transactions to a minimum.   
 You can see the noise level visually by looking at the amber RX LED of the Canique Gateway Hat. If the RX LED is on all the time, this means that the received noise is above the RX threshold (set to -98 dBm by default) all the time and message loss will occur.
 Please note that noise can also stem from a TV in the close proximity or some other electronic device.
+
 
 
 ## Raspberry Pi4 Power Optimization and Tuning
@@ -118,3 +120,8 @@ This will change some PHP and Nginx configuration files
 
 canique-local-cockpit  
 This will install the Canique Local Cockpit in /var/www
+
+
+## Developer Information
+
+[Adjusting the local cockpit to your needs](local_cockpit.md)
