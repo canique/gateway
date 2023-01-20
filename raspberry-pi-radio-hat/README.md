@@ -105,6 +105,17 @@ Once in while you may see a message like
 [GW Log] RX Rdy: 579926, Sync Addr: 13292, Sync Addr Tout 566634, Fifo Level Tout 0, Payload Rdy Tout 0
 ```
 The radio hat gathers statistics about certain events.   
+First an easy explanation:   
+
+RX Ready = how often the RX LED turned on   
+Sync Address = number of genuine messages   
+Sync Address Timeout = number of false positives (radio thinking it's a message but it is noise)   
+Fifo Level Timeout = number of cut off messages   
+Payload Ready Timeout = number of incomplete message that were too long to be counted as cut off but too short to be complete
+
+
+The technical explanation:   
+
 Rx Rdy (RX Ready): number of times that the radio has seen a signal which is above the receive RSSI threshold (-98 dBm by default). This is basically the number of times that the RX LED has turned on.   
 
 Sync Addr (Synchronization Address): number of times that a certain byte sequence has been received after the RX Ready event. This byte sequence is telling the Radio Hat that this is most probably a Canique message.   
