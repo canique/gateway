@@ -35,7 +35,7 @@ SetupInfluxRepository() {
   [ -f /etc/apt/sources.list.d/influxdb.list ] && return
 
   echo "Setting up InfluxDB repository"
-  wget -qO- https://repos.influxdata.com/influxdb.key | sudo tee /usr/share/keyrings/influxdb.key
+  wget -qO- https://repos.influxdata.com/influxdata-archive_compat.key | sudo tee /usr/share/keyrings/influxdb.key
   echo "deb [signed-by=/usr/share/keyrings/influxdb.key] https://repos.influxdata.com/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 }
 
