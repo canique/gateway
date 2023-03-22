@@ -3,9 +3,11 @@
 
 [Video showing accuracy of Canique Temperature Monitoring System](https://www.youtube.com/watch?v=cbi-35kW44U) - Video shows Raspberry Pi 4 + Radio Hat + 3 Canique Climat sensors and live updates on an iPad
 
-## Installation
+## Quick-Installation
 
 This How-To will explain how to turn your Raspberry Pi into a Canique 868MHz Gateway using a Canique Radio Hat for Raspberry Pi. Your Raspberry PI will then be able to communicate with Canique Temperature/Humidity sensors (with up to 20 years battery life time) via an encrypted 868 MHz channel.
+
+There is also an [extended installation procedure](install_radiohat_software.md) available with more details.
 
 
 Pre-Requisites:  
