@@ -1,22 +1,23 @@
-## Installation - Step by Step
+# Installation - Step by Step
 
 These are detailed install instructions for setting up a Raspberry Pi to be able to communicate with a Canique Radio Hat.
 
 
-Pre-Requisites:  
+## Pre-Requisites
 - a Raspberry Pi (tested on Raspberry Pi 3B and Raspberry Pi 4)
 - a computer with an SD card writer
 - a [Canique Radio Hat for Raspberry Pi](https://www.canique.com/radio-hat) with antenna and u.FL cable
 - at least 1 [Canique Climat](https://www.canique.com/climat) (temperature/humidity sensor) to talk to  
 
 
-Settings used during test installation:
+## Settings used during test installation
 - Raspberry Pi Imager/Timezone: Europe/Vienna
 - Raspberry Pi Imager/Keyboard Layut: German
 - Host System: Linux Mint
 - SD Card: Sandisk Ultra 16GB A1
 - Raspberry Pi Power Supply: original Raspberry Foundation power supply
 
+## Steps
 1) Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/) on your computer
 
 2) Insert an SD card into your computer
