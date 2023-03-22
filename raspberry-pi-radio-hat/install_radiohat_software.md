@@ -35,7 +35,7 @@ These are detailed install instructions for setting up a Raspberry Pi to be able
 
 8) Find out the IP address of your Raspberry Pi (by visiting router administration site)
 
-9) Run `ssh pi@x.x.x.x` on a linux computer in the same network (replace x.x.x.x by the IP address of your Raspberry Pi, and replace "pi" by the username you chose in step 5). When prompted for it, enter the password you chose in the settings in step 5.
+9) Run `ssh pi@x.x.x.x` on a linux computer in the same network (replace x.x.x.x by the IP address of your Raspberry Pi, and replace "pi" by the username you chose in step 5). When prompted for it, enter the password you chose in the settings in step 5. You are of course free to use Putty or some similar software if you're connecting from a Windows system.
 
 10) Run install.sh on your Raspberry PI to automatically install InfluxDB, a bugfixed Canique version of Mosquitto, Nginx webserver, PHP 7.4, the Canique Local Cockpit (a webpage that gives you access to your sensor data without internet connection), and Canique software to communicate with the hat  
 ```
@@ -49,10 +49,11 @@ chmod u+x install.sh && ./install.sh
 
 12) Wait for the LEDs on your Raspberry Pi to stop blinking (green LED must be off), then disconnect Power from your Raspberry Pi  
 
-13) - Insert CR2032 battery into Canique Radio Hat's battery holder (unless already done)
-   - Attach the antenna cable to the Canique Radio Hat (unless already done)
-   - Connect the Canique Radio Hat to your Raspberry Pi
-   - Connect the antenna to the cable
+13)
+  - Insert CR2032 battery into Canique Radio Hat's battery holder (unless already done)
+  - Attach the antenna cable to the Canique Radio Hat (unless already done)
+  - Connect the Canique Radio Hat to your Raspberry Pi
+  - Connect the antenna to the cable
 
 14) Reconnect Power to your Raspberry Pi  
    After booting up, the Radio Hat should already be working. It is actively listening for messages, when the log reads "Gateway Module initialized". You can display the last 100 log lines with the command:  
