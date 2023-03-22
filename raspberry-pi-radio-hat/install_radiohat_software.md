@@ -15,6 +15,7 @@ These are detailed install instructions for setting up a Raspberry Pi to be able
 - Raspberry Pi Imager/Keyboard Layut: German
 - Host System: Linux Mint
 - SD Card: Sandisk Ultra 16GB A1
+- SD Card writer: USB adapter UNIASD01 (https://uniaccessories.com/collections/uni-adapters/products/usb-a-to-sd-microsd-card-reader)
 - Raspberry Pi Power Supply: original Raspberry Foundation power supply
 
 ## Steps
