@@ -63,7 +63,7 @@ chmod u+x install.sh && ./install.sh
 
 6) Setup connection between your mosquitto broker and Canique Cloud (optional)  
 Enter in a terminal on your Raspberry Pi, replacing MQTT_USER and MQTT_PASSWORD with your own user and password that you got with the hat  
-`canique-setup-mosquitto-bridge MQTT_USER MQTT_PASSWORD`  
+`sudo canique-setup-mosquitto-bridge MQTT_USER MQTT_PASSWORD`  
 (You can skip this step if you do not want to use the Canique Cloud. Then your data will stay local.)
 
 7) Setup sensor radio password for every Canique Climat that you have  
