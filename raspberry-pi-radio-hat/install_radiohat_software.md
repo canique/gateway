@@ -18,6 +18,11 @@ These are detailed install instructions for setting up a Raspberry Pi to be able
 - SD Card writer: [USB adapter UNIASD01](https://uniaccessories.com/collections/uni-adapters/products/usb-a-to-sd-microsd-card-reader)
 - Raspberry Pi Power Supply: original Raspberry Foundation power supply
 
+## Recommendations
+- SD Card: a class A1 or better SD card is recommended to have good random read/write times
+- a decent power supply is crucial, otherwise you can have all kinds of issues with the Raspberry Pi (UART speed changing etc.)
+- experience shows: basically all problems that may occur have somehow to do with a bad power supply or a bad SD card
+
 ## Steps
 1) Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/) on your computer
 
