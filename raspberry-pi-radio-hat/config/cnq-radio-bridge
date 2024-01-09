@@ -22,7 +22,7 @@ ntp-check-interval-max=300
 rssi-threshold=-98
 
 [LOG]
-# display the offset between the message timestamp received by the hat, and the current system time
+# display the calculated offset between the transmission time from the sensor and the current system time: negative value means sensor RTC is behind system time, positive value means sensor RTC is ahead of system time
 sensor-rtc-offset=true
 # display messages that could not be decrypted
 failed-decrypt=true
